@@ -14,7 +14,7 @@ class App extends Component {
       password: "",
       fullname: "",
       email: "",
-      isLoggedIn: false,
+      isLoggedIn: true,
       register: false
     };
     this.updateFullNameState = this.updateFullNameState.bind(this);
