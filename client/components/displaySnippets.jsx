@@ -22,7 +22,7 @@ const displaySnippets = (props) => {
         </div>
         <div className='tagged-details-box'>
           <p className='tagged-snippet-date'>
-            { snippetsArray[i].date }
+            { snippetsArray[i].date}
           </p>
           <p className='tagged-snippet-project'>
             { snippetsArray[i].project }

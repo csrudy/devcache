@@ -14,7 +14,7 @@ class App extends Component {
       password: "",
       fullname: "",
       email: "",
-      isLoggedIn: false,
+      isLoggedIn: document.cookie.includes('session_id='),
       register: false
     };
     this.updateFullNameState = this.updateFullNameState.bind(this);
