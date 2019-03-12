@@ -20,12 +20,7 @@ class Main extends Component {
       tags: '',
       search: '',
       userTags: [],
-      taggedSnippets: [{
-        snippet: 'codecodecode',
-        date: '12/12/12',
-        project: 'devCache',
-        comments: 'Testing.'
-      }]
+      taggedSnippets: []
     };
     this.updateSnippetContent = this.updateSnippetContent.bind(this);
     this.updateComments = this.updateComments.bind(this);

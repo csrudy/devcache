@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const sessionController = {};
 
 sessionController.setCookie = (req, res, next) => {
+  console.log(res.locals.user_id)
   res.cookie('session_id', res.locals.session_id)
   res.cookie('user_id', res.locals.user_id), 
   next();

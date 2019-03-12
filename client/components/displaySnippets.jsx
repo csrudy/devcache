@@ -1,7 +1,7 @@
 import React from 'react';
 
 const displaySnippets = (props) => {
-  const snippetsArray = props.taggedSnippets;
+  const snippetsArray = props.taggedSnippets.reduce((acc, val)=>acc.concat(val), []);
   const snippetsDisplayArray = [];
 
   for (let i = 0; i < snippetsArray.length; i++) {
@@ -34,6 +34,7 @@ const displaySnippets = (props) => {
       </div>
     );
   };
+  console.log(snippetsDisplayArray)
   return (
     <div className='tagged-snippets-box'>
       { snippetsDisplayArray }

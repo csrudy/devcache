@@ -14,7 +14,7 @@ const saltRounds = 3;
 
 controller.getUsers = (req, res) => {
   console.log('initialized getUsers')
-  pool.query('SELECT * FROM users;', (error, results) => {
+  pool.query('SELECT * FROM accounts;', (error, results) => {
     if (error) {
       console.log(error)
       throw error;
@@ -29,7 +29,7 @@ controller.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
   const query = {
     name: 'verify-user',
-    text: 'SELECT * from account where username = $1;',
+    text: 'SELECT * from accounts where username = $1;',
     values: [username]
   }
   pool.query(query)
@@ -56,6 +56,7 @@ controller.createUser = (req, res, next) => {
   console.log('initializes createUser')
   console.log(req.body)
 
+
   let username = req.body.username;
   let password = req.body.password;
   let fullName = req.body.fullname;
@@ -64,7 +65,7 @@ controller.createUser = (req, res, next) => {
  bcrypt.hash(password, saltRounds, (err, hash) => {
   let query = {
     name: 'create-user',
-    text: 'INSERT into account(fullname, username, password, email) VALUES($1, $2, $3, $4) RETURNING user_id;',
+    text: 'INSERT into accounts(fullname, username, password, email) VALUES($1, $2, $3, $4) RETURNING user_id;',
     values: [fullName, username, hash, email]
   }
   pool.query(query)
